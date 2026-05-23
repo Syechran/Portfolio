@@ -1,0 +1,217 @@
+/* ════════════════════════════════════════════════════
+   UIUXShowcase.css
+   ──────────────────────────────────────────────────── */
+
+.uiux-section {
+  background-color: #e8e3d3; /* Latar warna krem */
+  padding: 6rem 5vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;  /* Snap ke awal section saat scroll */
+}
+
+.uiux-container {
+  width: 100%;
+  max-width: 850px; /* Lebarkan kontainer secara horizontal */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* RAHASIA FONT RESPONSIVE: Jadikan container sebagai acuan ukuran */
+  container-type: inline-size;
+}
+
+/* Judul Utama */
+.uiux-title {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: #de6536; /* Warna oranye aksen */
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+/* Grid Utama (2x2) */
+.uiux-grid {
+  display: grid;
+  /* RAHASIA GRID SEIMBANG: Gunakan minmax(0, 1fr) agar gambar beresolusi raksasa 
+     tidak 'mendesak' kolom menjadi lebih lebar dari jatahnya. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto; /* Biarkan baris otomatis menyesuaikan tingginya masing-masing */
+  width: 100%;
+}
+
+/* Kotak Gambar */
+.uiux-image-card {
+  width: 100%;
+  /* RAHASIA BENTUK: 1.3 / 1 berarti bentuknya persegi panjang (lebih lebar ke samping).
+     Ini mencegah kotaknya menjadi terlalu tinggi (raksasa) saat dilebarkan. */
+  aspect-ratio: 1.3 / 1; 
+  border-radius: 35px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uiux-image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.uiux-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  /* Tambahkan transisi super mulus untuk efek saat kursor diarahkan */
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 🎨 EFEK MIRING (AESTHETIC TILT) 
+   Kita perlu memperbesar (scale) gambarnya sedikit agar saat dimiringkan,
+   sudut-sudut kotaknya tidak kosong (terisi oleh gambar). */
+   
+/* 1. Numi (Kiri Atas) */
+.card-numi img {
+  transform: rotate(-25deg) scale(1.75); 
+}
+
+/* 2. Metria (Kanan Atas) */
+.card-metria img {
+  transform: rotate(-25deg) scale(1.40); 
+}
+
+/* 3. Adaptivo (Kiri Bawah) - SEKARANG DIPISAH! */
+.card-adaptivo img {
+  transform: rotate(-25deg) scale(1.40); /* <-- Kamu bisa ubah scale(1.40) ini secara bebas tanpa mengganggu Numi! */
+}
+
+/* ✨ Efek tambahan: Gambarnya akan "tegak" dan sedikit zoom-in saat kursor diarahkan (hover)! */
+.uiux-image-card:hover img {
+  transform: rotate(0deg) scale(1.1);
+}
+
+/* Kotak Teks (Grid dalam Grid) */
+.uiux-text-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 100%;
+  aspect-ratio: 1.3 / 1; /* Samakan dengan kotak gambar di atas */
+  overflow: hidden; /* Pastikan grid teks tidak pernah melebihi rasio aspeknya */
+}
+
+/* Kartu Oranye */
+.uiux-text-card {
+  background-color: #de6536;
+  color: #fff;
+  padding: 6%; /* Kurangi sedikit padding agar teks punya lebih banyak ruang */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  /* Atur radius dasar */
+  border-radius: 20px;
+}
+
+/* Sudut luar yang melengkung tajam (menyamai gambar utama) */
+.top-left-card { border-top-left-radius: 35px; }
+.top-right-card { border-top-right-radius: 35px; }
+.bottom-left-card { border-bottom-left-radius: 35px; }
+.bottom-right-card { border-bottom-right-radius: 35px; }
+
+/* Teks Deskripsi */
+.uiux-desc {
+  /* Menggunakan CQW (Container Query Width) agar font mengecil BERSAMAAN dengan container */
+  font-size: 11px; /* Sedikit dikecilkan agar aman */
+  line-height: 1.35;
+  margin: 0 0 0.5rem 0;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+.uiux-desc strong {
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* Teks Tim (Team up with) */
+.uiux-team {
+  font-size: 12px;
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.3;
+  margin-top: auto; /* Dorong ke bawah kalau teks deskripsi pendek */
+  padding-bottom: 25px; /* Ruang untuk dot putih */
+}
+
+/* Titik Lingkaran Putih di Kiri Bawah */
+.card-dot {
+  position: absolute;
+  bottom: 8%;
+  left: 10%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: transparent;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 1024px) {
+  .uiux-text-card {
+    padding: 1.5rem;
+  }
+  .card-dot {
+    bottom: 15px;
+    left: 1.5rem;
+  }
+  .uiux-team {
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ubah menjadi 1 kolom penuh di layar kecil */
+  .uiux-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
+  
+  .uiux-image-card {
+    aspect-ratio: 4 / 3;
+    border-radius: 25px;
+  }
+
+  .uiux-text-grid {
+    aspect-ratio: auto;
+    gap: 8px;
+    /* Ubah radius luar karena sekarang jadi 1 kolom tumpuk */
+    border-radius: 25px;
+    overflow: hidden; /* Potong lengkungan dari luar */
+  }
+
+  .uiux-text-card {
+    /* Reset radius, biarkan overflow:hidden dari parent yang memotong ujungnya */
+    border-radius: 0; 
+  }
+}
+
+@media (max-width: 480px) {
+  /* Kalau layar sangat kecil (HP memanjang), jadikan kartu teks 1 kolom juga */
+  .uiux-text-grid {
+    grid-template-columns: 1fr;
+  }
+  .uiux-text-card {
+    padding: 2rem 1.5rem;
+  }
+  .uiux-image-card {
+    aspect-ratio: 1 / 1;
+  }
+}

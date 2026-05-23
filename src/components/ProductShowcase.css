@@ -1,0 +1,191 @@
+/* ════════════════════════════════════════════════════
+   ProductShowcase.css — 3D Product Showcase Grid
+   ──────────────────────────────────────────────────── */
+
+.product-showcase {
+  background-color: #e8e3d3; /* Sama dengan hero section */
+  padding: 10rem 7vw;         /* Padding yang konsisten */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;  /* Snap ke awal section saat scroll */
+}
+
+.showcase-container {
+  width: 100%;
+  max-width: 1050px;         /* Max width agar tidak terlalu melebar di layar ultrawide */
+  margin: 0 auto;
+}
+
+/* Container utama grid */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;              /* Jarak antar kolom */
+  height: 80vh;              /* Tinggi responsif */
+  min-height: 600px;
+  max-height: 850px;
+}
+
+/* Tiap kolom flex direction column agar isinya bisa di atur tinggi persentasenya */
+.grid-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;              /* Jarak vertikal antar kotak */
+}
+
+/* Default styling untuk setiap kotak/card */
+.showcase-card {
+  border-radius: 24px;       /* Membulatkan sudut kotak */
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: #f2eee3; /* Background default placeholder jika gambar belum load */
+}
+
+/* Pastikan gambar memenuhi kotaknya dengan baik */
+.showcase-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Animasi hover pada gambar */
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   KOLOM 1 (Kiri)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.dark-card {
+  background-color: #000;
+  color: #fff;
+  height: 150px;               /* Proporsi tinggi kotak title */
+  display: flex;
+  align-items: flex-start;
+  padding: 1.8rem;
+  box-sizing: border-box;
+}
+
+.dark-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.dark-card h2 {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.02em;
+  padding-left: 20px;  
+}
+
+.dark-card h2 span {
+  color: #de6536;         /* Warna orange aksen */
+}
+
+/* Icon lingkaran di kanan atas title box */
+.toggle-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+}
+
+.toggle-icon::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.col1-img {
+  flex: 1; /* Otomatis mengisi sisa tinggi ruang agar sejajar di bawah */
+  height: auto;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   KOLOM 2 (Tengah)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.col2-img1 {
+  height: 48%;               /* Proporsi tinggi farfalla */
+}
+
+.col2-img2 {
+  flex: 1; /* Otomatis sejajar di bawah */
+  height: auto;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   KOLOM 3 (Kanan)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.col3-img1 {
+  height: 60%;               /* Proporsi tinggi mortune */
+}
+
+.col3-img2 {
+  flex: 1; /* Otomatis sejajar di bawah */
+  height: auto;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE — Tablet (≤ 960px)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 960px) {
+  .product-showcase {
+    padding: 4rem 5vw;
+  }
+  
+  .showcase-grid {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    grid-template-columns: repeat(2, 1fr); /* Berubah menjadi 2 kolom */
+  }
+
+  /* Mengatur ulang tinggi agar proporsional di tablet */
+  .grid-col {
+    height: 600px;
+  }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE — Mobile (≤ 600px)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 600px) {
+  .showcase-grid {
+    grid-template-columns: 1fr;            /* Berubah menjadi 1 kolom / stack vertikal */
+  }
+
+  .grid-col {
+    height: auto;
+  }
+
+  .dark-card {
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  /* Semua gambar diberi fixed height pada mobile agar tidak gepeng/terlalu panjang */
+  .col1-img, 
+  .col2-img1, 
+  .col2-img2, 
+  .col3-img1, 
+  .col3-img2 {
+    height: 350px;
+  }
+}

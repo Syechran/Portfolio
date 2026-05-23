@@ -1,0 +1,349 @@
+/* ════════════════════════════════════════════════════
+   HeroSection.css — Portfolio Hero
+   ────────────────────────────────────────────────────
+   🎨 WARNA
+     Background  : #e8e3d3  (cream)
+     Teks utama  : #1a1a1a  (near-black)
+     Teks sekund : #3a3a3a  (abu gelap)
+     Orange aksen: #de6536  → ganti di sini + di HeroSection.jsx
+
+   🔤 FONT
+     Bricolage Grotesque — di-load dari Google Fonts (index.css)
+
+   📐 LAYOUT
+     .hero-section      → flex container utama (full viewport)
+     .hero-content      → kolom kiri (teks)
+     .hero-photo-wrapper → kolom kanan (foto)
+     .hero-photo-frame  → kontainer foto (shape: square top, pill bottom)
+     .hero-photo        → gambar foto (zoom & posisi)
+   ════════════════════════════════════════════════════ */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   LAYOUT — Wrapper utama seluruh Hero Section
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero-section {
+  display: flex;
+  align-items: stretch;             /* kiri & kanan stretch penuh secara vertikal */
+  justify-content: space-between;
+  min-height: 100vh;                /* ✏️ ganti ke nilai lain jika ingin hero lebih pendek */
+  padding: 0 0 0 9vw;             /* ✏️ kiri: 13vw → geser konten lebih ke tengah/kanan */
+  background-color: #e8e3d3;       /* ✏️ warna background hero */
+  position: relative;
+  overflow: hidden;
+  gap: 0;
+  box-sizing: border-box;
+  scroll-snap-align: start;        /* Snap ke awal section saat scroll */
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   KOLOM KIRI — Teks & CTA
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 44%;                  /* ✏️ lebar kolom teks (% dari viewport) */
+  max-width: 600px;               /* ✏️ batas lebar maksimal teks */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;    /* ✏️ Ubah ke flex-start agar tidak otomatis ke tengah */
+  gap: 1rem;                      /* ✏️ jarak antar elemen teks */
+  padding-top: 25vh;              /* ✏️ Atur nilai ini (vh atau rem) untuk menaik-turunkan teks */
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TEKS — Greeting ("Hai. I'm Syechran.")
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero-greeting {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: 20px; /* ✏️ ukuran greeting */
+  font-weight: 500;
+  color: #1a1a1a;                            /* ✏️ warna greeting */
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TEKS — Headline Block ("A Creative Developer")
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1;
+}
+
+/* "A Creative" — hitam */
+.hero-title-line {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: 80px; /* ✏️ ukuran headline utama */
+  font-weight: 800;
+  color: #1a1a1a;                           /* ✏️ warna "A Creative" */
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* "Developer" + double scribble SVG di bawahnya */
+.hero-developer-wrap {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 2px;                                 /* ✏️ jarak antara teks dan garis scribble */
+}
+
+.hero-title-developer {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: 80px; /* ✏️ harus sama dengan .hero-title-line */
+  font-weight: 800;
+  color: #de6536;                           /* ✏️ warna "Developer" (orange) */
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* SVG double scribble — lebar mengikuti teks "Developer" */
+.hero-scribble {
+  width: 100%;
+  height: 22px;                             /* ✏️ tinggi area scribble */
+  display: block;
+  overflow: visible;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TEKS — Deskripsi / Bio
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero-description {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: 15px; /* ✏️ ukuran teks deskripsi */
+  font-weight: 400;
+  line-height: 1.75;                           /* ✏️ jarak antar baris */
+  color: #3a3a3a;                              /* ✏️ warna teks deskripsi */
+  margin: 0.4rem 0 0;
+  max-width: 380px;                            /* ✏️ lebar maksimal teks deskripsi */
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TOMBOL — "CONTACT ME"
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;                          /* ✏️ jarak dari deskripsi ke tombol */
+  padding: 0.85rem 0.85rem 0.85rem 1.6rem;
+  background-color: #de6536;                   /* ✏️ warna background tombol */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;                         /* ✏️ kebulatannya — 50px = pill shape */
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: 0.76rem;                          /* ✏️ ukuran teks tombol */
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  width: fit-content;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.hero-description-text {
+  font-size: 13px;
+}
+
+.hero-cta:hover {
+  background-color: #c4552a;                   /* ✏️ warna tombol saat di-hover */
+}
+
+/* Lingkaran ikon panah di dalam tombol */
+.hero-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;                                 /* ✏️ ukuran lingkaran ikon */
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+  transition: background-color 0.25s ease;
+}
+
+.hero-cta:hover .hero-cta-icon {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   KOLOM KANAN — Wrapper Foto
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero-photo-wrapper {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 40%;              /* ✏️ lebar kolom foto (% dari viewport) */
+  display: flex;
+  align-items: stretch;       /* foto stretch penuh secara vertikal */
+  justify-content: flex-end;
+  padding-right: 12vw;         /* ✏️ jarak foto dari tepi kanan layar — tambah untuk lebih menjorok ke dalam */
+  padding-bottom: 10rem;      /* ✏️ jarak foto dari tepi bawah section */
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   FRAME FOTO
+   Shape : sudut atas persegi (nempel ke atas)
+           sudut bawah membulat besar (pill/arch)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero-photo-frame {
+  width: 600px;                  /* ✏️ lebar frame foto:
+                                      - kurangi → frame lebih kecil
+                                      - tambah  → frame lebih besar */
+  border-radius: 0 0 999px 999px; /* ✏️ shape frame:
+                                      - 0 0      = sudut atas persegi
+                                      - 999px    = sudut bawah membulat penuh
+                                      Ganti 999px dengan nilai kecil untuk kurang bulat */
+  overflow: hidden;
+
+  box-shadow:
+    -12px 16px 40px rgba(0, 0, 0, 0.14),  /* ✏️ shadow kiri-bawah */
+    0 6px 20px rgba(0, 0, 0, 0.07);       /* ✏️ shadow bawah halus */
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   GAMBAR FOTO (di dalam frame)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;  /* ✏️ posisi fokus foto:
+                                      center = horizontal tengah
+                                      15%    = geser ke atas (lebih ke wajah)
+                                      Naikkan % untuk turun, turunkan untuk naik */
+  display: block;
+  user-select: none;
+  transform: scale(1.80);       /* ✏️ tingkat zoom foto:
+                                      1.0  = tidak di-zoom
+                                      1.18 = zoom +18%
+                                      1.3  = zoom +30% (lebih besar) */
+  transform-origin: center 30%;
+  transition: transform 0.4s ease-in-out;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE — Tablet (≤ 960px)
+   Layout: foto di atas, teks di bawah (column-reverse)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 960px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    padding: 0;
+    min-height: 100vh;
+    align-items: stretch;
+  }
+
+  /* Kolom teks — jadi blok penuh di bawah foto */
+  .hero-content {
+    flex: none;
+    max-width: 100%;
+    padding: 3rem 8vw 4rem;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .hero-title-line,
+  .hero-title-developer {
+    font-size: clamp(2.4rem, 6.5vw, 3.6rem);
+  }
+
+  .hero-description {
+    max-width: 520px;
+    font-size: clamp(0.88rem, 1.8vw, 1rem);
+  }
+
+  /* Kolom foto — jadi header di atas, tinggi tetap */
+  .hero-photo-wrapper {
+    flex: none;
+    height: 58vw;
+    min-height: 600px;
+    padding: 0;               /* reset semua padding desktop */
+    padding-bottom: 0;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .hero-photo-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 999px 999px;
+  }
+
+  .hero-photo {
+    object-position: center 30%;
+  }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE — Mobile (≤ 600px)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 600px) {
+  .hero-content {
+    padding: 2.5rem 6vw 3.5rem;
+    gap: 0.75rem;
+  }
+
+  .hero-title-line,
+  .hero-title-developer {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .hero-greeting {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+
+  .hero-description {
+    font-size: clamp(0.82rem, 3.2vw, 0.95rem);
+    max-width: 100%;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    padding: 0.75rem 0.75rem 0.75rem 1.4rem;
+  }
+
+  .hero-photo-wrapper {
+    height: 65vw;
+    min-height: 500px;
+    max-height: 340px;
+  }
+
+  .hero-scribble {
+    height: 18px;
+  }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE — Mobile Kecil (≤ 380px)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 380px) {
+  .hero-content {
+    padding: 2rem 5vw 3rem;
+  }
+
+  .hero-title-line,
+  .hero-title-developer {
+    font-size: clamp(1.8rem, 10vw, 2.4rem);
+  }
+
+  .hero-photo-wrapper {
+    height: 70vw;
+    min-height: 400px;
+  }
+
+  .hero-cta {
+    font-size: 0.68rem;
+    padding: 0.7rem 0.7rem 0.7rem 1.2rem;
+  }
+
+  .hero-cta-icon {
+    width: 30px;
+    height: 30px;
+  }
+}

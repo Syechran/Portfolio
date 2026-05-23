@@ -1,0 +1,167 @@
+/* ════════════════════════════════════════════════════
+   MobileDevShowcase.css
+   ──────────────────────────────────────────────────── */
+
+.mobiledev-section {
+  background-color: #e8e3d3; /* Sama dengan latar WebDev / Hero */
+  padding: 6rem 5vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;  /* Snap ke awal section saat scroll */
+}
+
+.mobiledev-container {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Judul Utama */
+.mobiledev-title {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: #de6536; /* Warna oranye aksen */
+  margin: 0 0 3.5rem 0;
+  text-align: center;
+}
+
+/* Grid Container untuk Card */
+.mobiledev-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+  width: 100%;
+}
+
+.mobile-card {
+  border: 8px solid #de6536; /* Border oranye tebal seperti di mockup */
+  border-radius: 30px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff; /* Beri warna dasar putih agar saat gambar di-zoom, background tetap rapi */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mobile-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(222, 101, 54, 0.15);
+}
+
+.mobile-image-wrapper {
+  width: 100%;
+  /* ✏️ ATUR PROPORSI KARTU DI SINI menggunakan aspect-ratio.
+     10/16 = tinggi (panjang), 10/12 = lebih pendek, 10/14 = proporsional. 
+     Ini akan membuat tingginya otomatis menyesuaikan lebarnya tanpa distorsi! */
+  aspect-ratio: 10 / 14; 
+  /* Rahasia lengkungan rapi: radius luar (30px) - tebal border (8px) = 22px */
+  border-radius: 21px; 
+  overflow: hidden; /* Memotong gambar yang di-zoom agar tidak keluar dari lengkungan bingkai */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Membuat gambar selalu memenuhi tinggi 700px di atas tanpa mengubah proporsi */
+  display: block;
+  user-select: none;
+  /* CARA MENGATUR ZOOM SPESIFIK:
+     1. scale(1.40)      -> Mengatur seberapa besar zoom-nya
+     2. translateY(5%)   -> Menggeser gambar ke BAWAH (nilai positif) atau ke ATAS (nilai negatif)
+  */
+  transform: scale(1.60) translateY(3.2%); 
+  transform-origin: center center;
+}
+
+/* Floating Action Button (FAB) */
+.mobile-action-btn {
+  position: absolute;
+  bottom: -28px;
+  right: -28px;
+  width: 65px;
+  height: 65px;
+  background-color: #de6536;
+  color: #fff;
+  /* Menggunakan border tebal warna latar (krem) agar terlihat seperti memotong bingkai oranye */
+  border: 6px solid #e8e3d3; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 10;
+  border-color: #fff;
+}
+
+.mobile-action-btn:hover {
+  transform: scale(1.08);
+  background-color: #c4552a;
+}
+
+.mobile-action-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Teks Deskripsi di Bawah */
+.mobiledev-desc {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  line-height: 1.6;
+  color: #de6536;
+  text-align: center;
+  max-width: 650px;
+  margin: 4.5rem auto 0;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 850px) {
+  .mobiledev-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    max-width: 500px; /* Membatasi lebar agar tidak terlalu raksasa saat jadi 1 kolom */
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobiledev-section {
+    padding: 5rem 5vw;
+  }
+  
+  .mobile-card {
+    border-width: 6px;
+    padding: 1rem;
+    border-radius: 24px;
+  }
+  
+  .mobile-action-btn {
+    width: 55px;
+    height: 55px;
+    bottom: -20px;
+    right: -20px;
+    border-width: 4px;
+  }
+  
+  .mobile-action-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .mobiledev-desc {
+    margin-top: 3.5rem;
+  }
+}

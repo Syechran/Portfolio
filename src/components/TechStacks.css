@@ -1,0 +1,157 @@
+/* ════════════════════════════════════════════════════
+   TechStacks.css
+   ──────────────────────────────────────────────────── */
+
+.techstack-section {
+  background-color: #e8e3d3; /* Latar krem konsisten dengan desain */
+  padding: 14rem 5vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;  /* Snap ke awal section saat scroll */
+}
+
+.techstack-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Judul Utama */
+.techstack-title {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: #de6536; /* Warna oranye aksen */
+  margin: 0 0 4rem 0;
+  text-align: center;
+}
+
+/* Grid Pembungkus */
+.techstack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem; /* Jarak antar tumpukan teknologi */
+  justify-content: center;
+  width: 100%;
+}
+
+/* Item Individual (Pill + Teks) */
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Jarak antara bentuk kapsul dan teks di bawahnya */
+}
+
+/* Bentuk Kapsul Oranye (Pill Shape) */
+.tech-pill {
+  width: 120px;
+  height: 180px; /* Cukup tinggi untuk bentuk kapsul */
+  background-color: #de6536;
+  border-radius: 60px; /* Sudut membulat penuh atas bawah */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px; /* Memberi ruang di atas lingkaran putih agar tidak menempel */
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+
+/* Animasi melayang saat kursor diarahkan */
+.tech-item:hover .tech-pill {
+  transform: translateY(-10px);
+}
+
+/* Lingkaran Putih di dalam Kapsul */
+.tech-circle {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo Teknologi */
+.tech-circle img {
+  width: 55px; /* Sesuaikan ukuran logo di dalam lingkaran putih */
+  height: 55px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.tech-item:hover .tech-circle img {
+  transform: scale(1.1); /* Logo sedikit membesar saat kapsul di-hover */
+}
+
+/* Teks Nama Teknologi */
+.tech-name {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  color: #de6536;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 768px) {
+  .techstack-grid {
+    gap: 1.5rem;
+  }
+
+  .tech-pill {
+    width: 100px;
+    height: 150px;
+    border-radius: 50px;
+    padding-top: 8px;
+  }
+
+  .tech-circle {
+    width: 84px;
+    height: 84px;
+  }
+
+  .tech-circle img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .tech-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .techstack-grid {
+    gap: 1rem;
+  }
+  
+  .tech-pill {
+    width: 90px;
+    height: 135px;
+    border-radius: 45px;
+    padding-top: 7px;
+  }
+
+  .tech-circle {
+    width: 76px;
+    height: 76px;
+  }
+
+  .tech-circle img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tech-name {
+    font-size: 0.9rem;
+  }
+}
