@@ -10,14 +10,13 @@ import imgBelanja from '../assets/belanjayuk.png';
 import imgPadi from '../assets/padi.png';
 
 const projects = [
-  { id: 1, image: imgKahuto, title: 'Kahuto Store' },
-  { id: 2, image: imgMatcha, title: 'Matcha' },
-  { id: 3, image: imgBinus, title: 'Binus Flow' },
-  { id: 4, image: imgRentcar, title: 'Rent Car' },
-  { id: 5, image: imgBelanja, title: 'Belanja Yuk' },
-  { id: 6, image: imgPadi, title: 'Padi' },
+  { id: 1, image: imgKahuto, title: 'Kahuto Store', link: 'https://github.com/Syechran/' },
+  { id: 2, image: imgMatcha, title: 'Matcha', link: 'https://github.com/Syechran/matchadelight' },
+  { id: 3, image: imgBinus, title: 'Binus Flow', link: 'https://github.com/Syechran/todolist-binusflow' },
+  { id: 4, image: imgRentcar, title: 'Rent Car', link: 'https://github.com/Syechran/rentcar' },
+  { id: 5, image: imgBelanja, title: 'Belanja Yuk', link: 'https://github.com/Syechran/belanjayuk' },
+  { id: 6, image: imgPadi, title: 'Padi', link: 'https://github.com/Syechran/Pendeteksi-Penyakit-Padi' },
 ];
-
 // Duplikasi array agar bisa looping tanpa putus
 const duplicatedProjects = [...projects, ...projects, ...projects];
 
@@ -25,7 +24,7 @@ export default function WebDevShowcase() {
   const [isPressed, setIsPressed] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [contentWidth, setContentWidth] = useState(0);
-  
+
   const trackRef = useRef(null);
   const x = useMotionValue(0);
 
@@ -37,7 +36,7 @@ export default function WebDevShowcase() {
         setContentWidth(trackRef.current.scrollWidth / 3);
       }
     };
-    
+
     // Beri sedikit jeda agar gambar ter-render dulu
     setTimeout(measure, 100);
     window.addEventListener('resize', measure);
@@ -47,16 +46,16 @@ export default function WebDevShowcase() {
   // Frame loop untuk animasi berjalan terus-menerus (Marquee)
   useAnimationFrame((t, delta) => {
     if (isPressed || isDragging || !contentWidth) return;
-    
+
     // Kecepatan geser (bisa diatur)
-    const moveBy = 1.2 * (delta / 16); 
+    const moveBy = 1.2 * (delta / 16);
     let newX = x.get() - moveBy;
-    
+
     // Jika sudah melewati batas 1 set, reset mulus ke 0
     if (newX <= -contentWidth) {
       newX += contentWidth;
     }
-    
+
     x.set(newX);
   });
 
@@ -73,26 +72,26 @@ export default function WebDevShowcase() {
   return (
     <section className="webdev-section" id="webdev">
       <div className="webdev-container">
-        
+
         {/* Main Orange Box */}
         <div className="webdev-box">
           <div className="webdev-header">
             <h2>Web Development</h2>
             <p>
-              Explore the logic behind the pixels. Click to view public repositories on GitHub. 
+              Explore the logic behind the pixels. Click to view public repositories on GitHub.
               Please note: client-confidential projects are restricted to visual previews.
             </p>
           </div>
 
-          <div 
-            className="carousel-viewport" 
+          <div
+            className="carousel-viewport"
             onMouseDown={() => setIsPressed(true)}
             onMouseUp={() => setIsPressed(false)}
             onMouseLeave={() => setIsPressed(false)}
             onTouchStart={() => setIsPressed(true)}
             onTouchEnd={() => setIsPressed(false)}
           >
-            <motion.div 
+            <motion.div
               className="carousel-track marquee-mode"
               ref={trackRef}
               style={{ x }}
@@ -106,13 +105,27 @@ export default function WebDevShowcase() {
                 <div key={`${project.id}-${index}`} className="carousel-slide marquee-slide">
                   <div className="slide-image-container">
                     <img src={project.image} alt={project.title} draggable="false" />
-                    
-                    <button className="slide-action-btn" aria-label="View Project">
+
+                    {/* Ubah button menjadi tag a (anchor) */}
+                    <a
+                      href={project.link || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="slide-action-btn"
+                      aria-label="View Project"
+                      onClick={(e) => {
+                        // Mencegah link terbuka jika pengguna sedang men-drag carousel
+                        if (isDragging) {
+                          e.preventDefault();
+                        }
+                      }}
+                    >
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
-                    </button>
+                    </a>
+
                   </div>
                 </div>
               ))}

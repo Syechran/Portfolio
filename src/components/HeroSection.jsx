@@ -1,5 +1,5 @@
 import { useEffect, useRef, useContext } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { motion, useInView, useAnimation, animate } from 'framer-motion';
 import profilePic from '../assets/Profile Picture.jpg';
 import './HeroSection.css';
 import { ScrollRefContext } from '../App';
@@ -157,7 +157,27 @@ export default function HeroSection() {
 
         {/* CTA Button */}
         <motion.a
-          href="#contact"
+          onClick={(e) => {
+            e.preventDefault(); // Mencegah default behavior jika ada atribut href
+
+            const targetElement = document.getElementById('contact');
+            const container = scrollRef.current;
+
+            if (targetElement && container) {
+              // Ambil jarak vertikal dari target ke atas container
+              const targetPosition = targetElement.offsetTop;
+
+              // Animasikan nilai scrollTop container dari posisi saat ini ke targetPosition
+              animate(container.scrollTop, targetPosition, {
+                type: "tween",
+                ease: "easeInOut", // Efek melambat di awal dan akhir
+                duration: 0.8, // Waktu scroll dalam detik (ubah menjadi 1.2 atau 1.5 jika ingin lebih lambat)
+                onUpdate: (latestValue) => {
+                  container.scrollTop = latestValue; // Update posisi scroll secara realtime
+                }
+              });
+            }
+          }}
           className="hero-cta"
           variants={buttonVariant}
           initial="hidden"
@@ -167,6 +187,7 @@ export default function HeroSection() {
             boxShadow: '0 8px 32px rgba(222, 101, 54, 0.45)',
           }}
           whileTap={{ scale: 0.97 }}
+          style={{ cursor: 'pointer' }}
         >
           <span className="hero-description-text">CONTACT ME</span>
           <span className="hero-cta-icon">
