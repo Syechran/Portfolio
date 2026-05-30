@@ -4,8 +4,9 @@
 
 .webdev-section {
   background-color: #e8e3d3;
-  padding: 5rem 0; /* Padding kiri-kanan dihapus agar container bisa full width lebih bebas */
-  min-height: 100vh;
+  padding: 2rem 0; /* Padding vertikal dikurangi agar fit 100vh */
+  height: 100vh;       /* Tepat 100vh agar konten terkunci di tengah layar */
+  overflow: hidden;    /* Cegah konten meluber keluar */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -185,12 +186,11 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .webdev-section {
+    height: auto;        /* Biarkan tinggi mengikuti konten di mobile */
+    min-height: 100svh;  /* svh = small viewport height, aman untuk mobile browser dengan address bar */
+    overflow: visible;   /* Cegah konten terpotong */
     padding: 3rem 0;
-  }
-  
-  .webdev-header h2 {
-    font-size: 2rem;
   }
 }

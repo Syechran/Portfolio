@@ -155,36 +155,69 @@ export default function HeroSection() {
           —from high-fidelity UI/UX to functional web and mobile solutions.
         </motion.p>
 
-        {/* CTA Button */}
-        <motion.a
-          href="#contact"
-          className="hero-cta"
-          variants={buttonVariant}
-          initial="hidden"
-          animate={controls}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: '0 8px 32px rgba(222, 101, 54, 0.45)',
-          }}
-          whileTap={{ scale: 0.97 }}
-        >
-          <span className="hero-description-text">CONTACT ME</span>
-          <span className="hero-cta-icon">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </span>
-        </motion.a>
+        {/* CTA Buttons */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <motion.a
+            href="#contact"
+            className="hero-cta"
+            variants={buttonVariant}
+            initial="hidden"
+            animate={controls}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 8px 32px rgba(222, 101, 54, 0.45)',
+            }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <span className="hero-description-text">CONTACT ME</span>
+            <span className="hero-cta-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </motion.a>
+
+          <motion.a
+            href="assets/CV.pdf"
+            download="CV.pdf"
+            className="hero-cta"
+            variants={buttonVariant}
+            initial="hidden"
+            animate={controls}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 8px 32px rgba(222, 101, 54, 0.45)',
+            }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <span className="hero-description-text">Download CV</span>
+            <span className="hero-cta-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </motion.a>
+        </div>
       </div>
 
       {/* ── RIGHT: Profile Photo (flush to top, rounded bottom) ── */}

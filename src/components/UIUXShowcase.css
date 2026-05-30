@@ -4,7 +4,7 @@
 
 .uiux-section {
   background-color: #e8e3d3; /* Latar warna krem */
-  padding: 6rem 5vw;
+  padding: 2rem 5vw;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -213,5 +213,13 @@
   }
   .uiux-image-card {
     aspect-ratio: 1 / 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .uiux-section {
+    height: auto;
+    min-height: 100svh;
+    padding: 3rem 5vw;
   }
 }

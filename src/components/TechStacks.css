@@ -4,8 +4,8 @@
 
 .techstack-section {
   background-color: #e8e3d3; /* Latar krem konsisten dengan desain */
-  padding: 14rem 5vw;
-  min-height: 100vh;
+  padding: 2rem 5vw;
+  height: 100vh;       /* Tepat 100vh agar konten terkunci di tengah layar */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,5 +153,13 @@
 
   .tech-name {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .techstack-section {
+    height: auto;
+    min-height: 100svh;
+    padding: 3rem 5vw;
   }
 }

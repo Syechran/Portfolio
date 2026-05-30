@@ -4,8 +4,8 @@
 
 .mobiledev-section {
   background-color: #e8e3d3; /* Sama dengan latar WebDev / Hero */
-  padding: 6rem 5vw;
-  min-height: 100vh;
+  padding: 2rem 5vw;
+  height: 100vh;       /* Tepat 100vh agar konten terkunci di tengah layar */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,5 +163,13 @@
   
   .mobiledev-desc {
     margin-top: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobiledev-section {
+    height: auto;
+    min-height: 100svh;
+    padding: 3rem 5vw;
   }
 }

@@ -4,7 +4,7 @@
 
 .product-showcase {
   background-color: #e8e3d3; /* Sama dengan hero section */
-  padding: 10rem 7vw;         /* Padding yang konsisten */
+  padding: 2rem 7vw;         /* Padding dikurangi agar tidak overflow 100vh dan bisa berada pas di tengah */
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -187,5 +187,15 @@
   .col3-img1, 
   .col3-img2 {
     height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-showcase {
+    height: auto;
+    min-height: 100svh;
+    padding: 2rem 4vw;
+    align-items: flex-start;  /* Mulai dari atas agar user bisa scroll konten yang panjang */
+    padding-top: 3rem;
   }
 }
