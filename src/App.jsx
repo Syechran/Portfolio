@@ -1,4 +1,4 @@
-import { useRef, createContext, useEffect } from 'react';
+import { useRef, createContext, useEffect, useState } from 'react';
 import { ReactLenis, useLenis } from 'lenis/react';
 import Snap from 'lenis/snap';
 import HeroSection from './components/HeroSection';
@@ -23,10 +23,6 @@ function LenisSnap() {
   useEffect(() => {
     if (!lenis) return;
 
-    // Di mobile, nonaktifkan Snap agar tidak terjadi konflik dengan touch scroll
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) return;
-
     // Inisialisasi Snap plugin untuk lenis (desktop only)
     const snap = new Snap(lenis, {
       type: 'mandatory',
@@ -36,7 +32,7 @@ function LenisSnap() {
 
     // Cari semua elemen section atau komponen utama untuk di-snap
     const sections = Array.from(document.querySelectorAll('section, .app-wrapper, .showcase-section'));
-    
+
     // Daftarkan elemen ke snap
     if (sections.length > 0) {
       snap.addElements(sections, { align: 'start' });
@@ -50,31 +46,49 @@ function LenisSnap() {
   return null;
 }
 
+function AppContent({ isDesktop, scrollRef }) {
+  return (
+    <ScrollRefContext.Provider value={scrollRef}>
+      <div ref={scrollRef}>
+        <HeroSection />
+        <ProductShowcase />
+        <WebDevShowcase />
+        <MobileDevShowcase />
+        <UIUXShowcase />
+        <TechStacks />
+        <Contact />
+      </div>
+    </ScrollRefContext.Provider>
+  );
+}
+
 function App() {
   const scrollRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(window.matchMedia('(min-width: 769px)').matches);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 769px)');
+    const handleChange = (e) => setIsDesktop(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Mobile: Tidak pakai Lenis, scroll normal
+  if (!isDesktop) {
+    return <AppContent isDesktop={false} scrollRef={scrollRef} />;
+  }
+
+  // Desktop: Pakai Lenis dengan snap scroll
   return (
     <ReactLenis
       root
       options={{
         lerp: 0.07,
         smoothWheel: true,
-        syncTouch: true,        /* Aktifkan agar Lenis intercept touch events di mobile */
-        syncTouchLerp: 0.06,    /* Kelancaran inertia saat jari dilepas di mobile */
       }}
     >
       <LenisSnap />
-      <ScrollRefContext.Provider value={scrollRef}>
-        <div ref={scrollRef}>
-          <HeroSection />
-          <ProductShowcase />
-          <WebDevShowcase />
-          <MobileDevShowcase />
-          <UIUXShowcase />
-          <TechStacks />
-          <Contact />
-        </div>
-      </ScrollRefContext.Provider>
+      <AppContent isDesktop={true} scrollRef={scrollRef} />
     </ReactLenis>
   );
 }

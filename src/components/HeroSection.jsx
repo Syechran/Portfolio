@@ -155,11 +155,17 @@ export default function HeroSection() {
           —from high-fidelity UI/UX to functional web and mobile solutions.
         </motion.p>
 
-<<<<<<< HEAD
         {/* CTA Buttons */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <motion.a
-            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                window.history.replaceState(null, '', window.location.pathname);
+              }
+            }}
             className="hero-cta"
             variants={buttonVariant}
             initial="hidden"
@@ -219,59 +225,6 @@ export default function HeroSection() {
             </span>
           </motion.a>
         </div>
-=======
-        {/* CTA Button */}
-        <motion.a
-          onClick={(e) => {
-            e.preventDefault(); // Mencegah default behavior jika ada atribut href
-
-            const targetElement = document.getElementById('contact');
-            const container = scrollRef.current;
-
-            if (targetElement && container) {
-              // Ambil jarak vertikal dari target ke atas container
-              const targetPosition = targetElement.offsetTop;
-
-              // Animasikan nilai scrollTop container dari posisi saat ini ke targetPosition
-              animate(container.scrollTop, targetPosition, {
-                type: "tween",
-                ease: "easeInOut", // Efek melambat di awal dan akhir
-                duration: 0.8, // Waktu scroll dalam detik (ubah menjadi 1.2 atau 1.5 jika ingin lebih lambat)
-                onUpdate: (latestValue) => {
-                  container.scrollTop = latestValue; // Update posisi scroll secara realtime
-                }
-              });
-            }
-          }}
-          className="hero-cta"
-          variants={buttonVariant}
-          initial="hidden"
-          animate={controls}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: '0 8px 32px rgba(222, 101, 54, 0.45)',
-          }}
-          whileTap={{ scale: 0.97 }}
-          style={{ cursor: 'pointer' }}
-        >
-          <span className="hero-description-text">CONTACT ME</span>
-          <span className="hero-cta-icon">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </span>
-        </motion.a>
->>>>>>> origin/main
       </div>
 
       {/* ── RIGHT: Profile Photo (flush to top, rounded bottom) ── */}
