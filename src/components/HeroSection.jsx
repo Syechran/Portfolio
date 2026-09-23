@@ -1,6 +1,7 @@
 import { useEffect, useRef, useContext } from 'react';
 import { motion, useInView, useAnimation, animate } from 'framer-motion';
-import profilePic from '../assets/Profile Picture.jpg';
+import profilePic from '../assets/Profile Picture.webp';
+import cvPdf from '../assets/CV.pdf';
 import './HeroSection.css';
 import { ScrollRefContext } from '../App';
 
@@ -195,7 +196,7 @@ export default function HeroSection() {
           </motion.a>
 
           <motion.a
-            href="assets/CV.pdf"
+            href={cvPdf}
             download="CV.pdf"
             className="hero-cta"
             variants={buttonVariant}
@@ -240,6 +241,8 @@ export default function HeroSection() {
             alt="Syechran — Creative Developer"
             className="hero-photo"
             draggable={false}
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
       </motion.div>

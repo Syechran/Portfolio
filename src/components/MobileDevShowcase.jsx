@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './MobileDevShowcase.css';
 
-import imgKeuangan from '../assets/keuangan mockup.png';
-import imgStoreGG from '../assets/storegg mockup.png';
+import imgKeuangan from '../assets/keuangan mockup.webp';
+import imgStoreGG from '../assets/storegg mockup.webp';
 
 export default function MobileDevShowcase() {
   return (
@@ -30,7 +30,7 @@ export default function MobileDevShowcase() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="mobile-image-wrapper">
-              <img src={imgKeuangan} alt="Aplikasi Keuangan" />
+              <img loading="lazy" decoding="async" src={imgKeuangan} alt="Aplikasi Keuangan" />
             </div>
 
             {/* UBAH DI SINI: ganti button menjadi a */}
@@ -57,7 +57,7 @@ export default function MobileDevShowcase() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className="mobile-image-wrapper">
-              <img src={imgStoreGG} alt="Store GG" />
+              <img loading="lazy" decoding="async" src={imgStoreGG} alt="Store GG" />
             </div>
 
             {/* UBAH DI SINI: ganti button menjadi a */}

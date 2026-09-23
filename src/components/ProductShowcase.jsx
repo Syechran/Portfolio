@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './ProductShowcase.css';
 
-import imgFierce from '../assets/fierce.jpg';
-import imgFarfalla from '../assets/farfalla.png';
-import imgFloria from '../assets/floria.png';
-import imgMortune from '../assets/mortune.png';
-import imgCookies from '../assets/cookies.png';
+import imgFierce from '../assets/fierce.webp';
+import imgFarfalla from '../assets/farfalla.webp';
+import imgFloria from '../assets/floria.webp';
+import imgMortune from '../assets/mortune.webp';
+import imgCookies from '../assets/cookies.webp';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -40,7 +40,7 @@ export default function ProductShowcase() {
               <a href="https://www.instagram.com/p/CtMaLA5BeYo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                 target="_blank"
                 rel="noopener noreferrer">
-                <img src={imgFierce} alt="Fierce Product" />
+                <img loading="lazy" decoding="async" src={imgFierce} alt="Fierce Product" />
               </a>
             </motion.div>
           </div>
@@ -51,14 +51,14 @@ export default function ProductShowcase() {
               <a href="https://www.instagram.com/p/CnQw8F0hyuF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                 target="_blank"
                 rel="noopener noreferrer">
-                <img src={imgFarfalla} alt="Farfalla Essential Oil" />
+                <img loading="lazy" decoding="async" src={imgFarfalla} alt="Farfalla Essential Oil" />
               </a>
             </motion.div>
             <motion.div variants={fadeUp} custom={0.3} className="showcase-card image-card col2-img2">
               <a href="https://www.instagram.com/p/Cn41vbeBQc3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                 target="_blank"
                 rel="noopener noreferrer">
-                <img src={imgFloria} alt="Floria Cream" />
+                <img loading="lazy" decoding="async" src={imgFloria} alt="Floria Cream" />
               </a>
             </motion.div>
           </div>
@@ -69,14 +69,14 @@ export default function ProductShowcase() {
               <a href="https://www.instagram.com/p/CrDjeFdPVEb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                 target="_blank"
                 rel="noopener noreferrer">
-                <img src={imgMortune} alt="Mortune Bottles" />
+                <img loading="lazy" decoding="async" src={imgMortune} alt="Mortune Bottles" />
               </a>
             </motion.div>
             <motion.div variants={fadeUp} custom={0.5} className="showcase-card image-card col3-img2">
               <a href="https://www.instagram.com/p/Ct_b0n2BiMj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                 target="_blank"
                 rel="noopener noreferrer">
-                <img src={imgCookies} alt="Cookies Bag" />
+                <img loading="lazy" decoding="async" src={imgCookies} alt="Cookies Bag" />
               </a>
             </motion.div>
           </div>

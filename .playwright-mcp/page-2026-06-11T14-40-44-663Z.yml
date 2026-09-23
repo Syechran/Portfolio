@@ -1,0 +1,226 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Hai. I'm Syechran,
+      - generic [ref=e7]:
+        - heading "A Creative" [level=1] [ref=e8]
+        - generic [ref=e9]:
+          - heading "Developer" [level=1] [ref=e10]
+          - img [ref=e11]
+      - paragraph [ref=e14]: who bridges the gap between logic and aesthetics. Starting my journey in 3D & visual design, I now craft immersive digital experiences —from high-fidelity UI/UX to functional web and mobile solutions.
+      - generic [ref=e15]:
+        - generic [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: CONTACT ME
+          - img [ref=e19]
+        - link "Download CV" [ref=e21] [cursor=pointer]:
+          - /url: assets/CV.pdf
+          - generic [ref=e22]: Download CV
+          - img [ref=e24]
+    - img "Syechran — Creative Developer" [ref=e28]
+  - generic [ref=e31]:
+    - generic [ref=e32]:
+      - heading "3D Product" [level=2] [ref=e35]:
+        - text: 3D
+        - text: Product
+      - link "Fierce Product" [ref=e38] [cursor=pointer]:
+        - /url: https://www.instagram.com/p/CtMaLA5BeYo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+        - img "Fierce Product" [ref=e39]
+    - generic [ref=e40]:
+      - link "Farfalla Essential Oil" [ref=e42] [cursor=pointer]:
+        - /url: https://www.instagram.com/p/CnQw8F0hyuF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+        - img "Farfalla Essential Oil" [ref=e43]
+      - link "Floria Cream" [ref=e45] [cursor=pointer]:
+        - /url: https://www.instagram.com/p/Cn41vbeBQc3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+        - img "Floria Cream" [ref=e46]
+    - generic [ref=e47]:
+      - link "Mortune Bottles" [ref=e49] [cursor=pointer]:
+        - /url: https://www.instagram.com/p/CrDjeFdPVEb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+        - img "Mortune Bottles" [ref=e50]
+      - link "Cookies Bag" [ref=e52] [cursor=pointer]:
+        - /url: https://www.instagram.com/p/Ct_b0n2BiMj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+        - img "Cookies Bag" [ref=e53]
+  - generic [ref=e56]:
+    - generic [ref=e57]:
+      - heading "Web Development" [level=2] [ref=e58]
+      - paragraph [ref=e59]: "Explore the logic behind the pixels. Click to view public repositories on GitHub. Please note: client-confidential projects are restricted to visual previews."
+    - generic [ref=e61]:
+      - generic [ref=e63]:
+        - img "Kahuto Store" [ref=e64]
+        - link "View Project" [ref=e65] [cursor=pointer]:
+          - /url: https://github.com/Syechran/
+          - img [ref=e66]
+      - generic [ref=e69]:
+        - img "Matcha" [ref=e70]
+        - link "View Project" [ref=e71] [cursor=pointer]:
+          - /url: https://github.com/Syechran/matchadelight
+          - img [ref=e72]
+      - generic [ref=e75]:
+        - img "Binus Flow" [ref=e76]
+        - link "View Project" [ref=e77] [cursor=pointer]:
+          - /url: https://github.com/Syechran/todolist-binusflow
+          - img [ref=e78]
+      - generic [ref=e81]:
+        - img "Rent Car" [ref=e82]
+        - link "View Project" [ref=e83] [cursor=pointer]:
+          - /url: https://github.com/Syechran/rentcar
+          - img [ref=e84]
+      - generic [ref=e87]:
+        - img "Belanja Yuk" [ref=e88]
+        - link "View Project" [ref=e89] [cursor=pointer]:
+          - /url: https://github.com/Syechran/belanjayuk
+          - img [ref=e90]
+      - generic [ref=e93]:
+        - img "Padi" [ref=e94]
+        - link "View Project" [ref=e95] [cursor=pointer]:
+          - /url: https://github.com/Syechran/Pendeteksi-Penyakit-Padi
+          - img [ref=e96]
+      - generic [ref=e99]:
+        - img "Kahuto Store" [ref=e100]
+        - link "View Project" [ref=e101] [cursor=pointer]:
+          - /url: https://github.com/Syechran/
+          - img [ref=e102]
+      - generic [ref=e105]:
+        - img "Matcha" [ref=e106]
+        - link "View Project" [ref=e107] [cursor=pointer]:
+          - /url: https://github.com/Syechran/matchadelight
+          - img [ref=e108]
+      - generic [ref=e111]:
+        - img "Binus Flow" [ref=e112]
+        - link "View Project" [ref=e113] [cursor=pointer]:
+          - /url: https://github.com/Syechran/todolist-binusflow
+          - img [ref=e114]
+      - generic [ref=e117]:
+        - img "Rent Car" [ref=e118]
+        - link "View Project" [ref=e119] [cursor=pointer]:
+          - /url: https://github.com/Syechran/rentcar
+          - img [ref=e120]
+      - generic [ref=e123]:
+        - img "Belanja Yuk" [ref=e124]
+        - link "View Project" [ref=e125] [cursor=pointer]:
+          - /url: https://github.com/Syechran/belanjayuk
+          - img [ref=e126]
+      - generic [ref=e129]:
+        - img "Padi" [ref=e130]
+        - link "View Project" [ref=e131] [cursor=pointer]:
+          - /url: https://github.com/Syechran/Pendeteksi-Penyakit-Padi
+          - img [ref=e132]
+      - generic [ref=e135]:
+        - img "Kahuto Store" [ref=e136]
+        - link "View Project" [ref=e137] [cursor=pointer]:
+          - /url: https://github.com/Syechran/
+          - img [ref=e138]
+      - generic [ref=e141]:
+        - img "Matcha" [ref=e142]
+        - link "View Project" [ref=e143] [cursor=pointer]:
+          - /url: https://github.com/Syechran/matchadelight
+          - img [ref=e144]
+      - generic [ref=e147]:
+        - img "Binus Flow" [ref=e148]
+        - link "View Project" [ref=e149] [cursor=pointer]:
+          - /url: https://github.com/Syechran/todolist-binusflow
+          - img [ref=e150]
+      - generic [ref=e153]:
+        - img "Rent Car" [ref=e154]
+        - link "View Project" [ref=e155] [cursor=pointer]:
+          - /url: https://github.com/Syechran/rentcar
+          - img [ref=e156]
+      - generic [ref=e159]:
+        - img "Belanja Yuk" [ref=e160]
+        - link "View Project" [ref=e161] [cursor=pointer]:
+          - /url: https://github.com/Syechran/belanjayuk
+          - img [ref=e162]
+      - generic [ref=e165]:
+        - img "Padi" [ref=e166]
+        - link "View Project" [ref=e167] [cursor=pointer]:
+          - /url: https://github.com/Syechran/Pendeteksi-Penyakit-Padi
+          - img [ref=e168]
+  - generic [ref=e171]:
+    - heading "Mobile Development" [level=2] [ref=e172]
+    - generic [ref=e173]:
+      - generic [ref=e174]:
+        - img "Aplikasi Keuangan" [ref=e176]
+        - link "View Project" [ref=e177] [cursor=pointer]:
+          - /url: https://github.com/Syechran/personal-expense-tracker
+          - img [ref=e178]
+      - generic [ref=e180]:
+        - img "Store GG" [ref=e182]
+        - link "View Project" [ref=e183] [cursor=pointer]:
+          - /url: https://github.com/Syechran/storeggmobile
+          - img [ref=e184]
+    - paragraph [ref=e186]: "Explore the logic behind the pixels. Click to view public repositories on GitHub. Please note: client-confidential projects are restricted to visual previews."
+  - generic [ref=e188]:
+    - heading "UI/UX Design" [level=2] [ref=e189]
+    - generic [ref=e190]:
+      - img "Numi Design" [ref=e192]
+      - img "Metria Design" [ref=e194]
+      - img "Adaptivo Design" [ref=e196]
+      - generic [ref=e197]:
+        - generic [ref=e198]:
+          - paragraph [ref=e199]:
+            - strong [ref=e200]: Numi
+            - text: ", math learning made addictive. A gamified experience that turns equations into daily adventures."
+          - paragraph [ref=e201]: "Team up with : @rapit.zn, @hilmeetamaam"
+        - generic [ref=e203]:
+          - paragraph [ref=e204]:
+            - strong [ref=e205]: Metria
+            - text: ", where Fit meets fashion. A precision-driven app that captures your exact body measurements to curate the perfect digital wardrobe."
+          - paragraph [ref=e206]: "Team up with : @raihansnh @rapit.zn, @hilmeetamaam"
+        - generic [ref=e208]:
+          - paragraph [ref=e209]:
+            - strong [ref=e210]: Adaptivo
+            - text: ", productivity that listens to your body. A smart task manager that harmonizes your daily goals with your real-time physical well-being."
+          - paragraph [ref=e211]: "Team up with : @pratamawae489, @gib_tyx"
+        - paragraph [ref=e214]: Created in partnership with a dedicated team for a past design competition. My role involved shaping the visual direction and ensuring a user-centric design approach.
+  - generic [ref=e216]:
+    - heading "Tech Stacks" [level=2] [ref=e217]
+    - generic [ref=e218]:
+      - generic [ref=e219]:
+        - img "Figma logo" [ref=e222] [cursor=pointer]
+        - paragraph [ref=e223]: Figma
+      - generic [ref=e224]:
+        - img "React logo" [ref=e227] [cursor=pointer]
+        - paragraph [ref=e228]: React
+      - generic [ref=e229]:
+        - img "NodeJS logo" [ref=e232] [cursor=pointer]
+        - paragraph [ref=e233]: NodeJS
+      - generic [ref=e234]:
+        - img "Blender logo" [ref=e237] [cursor=pointer]
+        - paragraph [ref=e238]: Blender
+      - generic [ref=e239]:
+        - img "Illustrator logo" [ref=e242] [cursor=pointer]
+        - paragraph [ref=e243]: Illustrator
+      - generic [ref=e244]:
+        - img "Photoshop logo" [ref=e247] [cursor=pointer]
+        - paragraph [ref=e248]: Photoshop
+  - generic [ref=e250]:
+    - generic [ref=e252]:
+      - heading "Contact" [level=2] [ref=e253]
+      - generic [ref=e254]:
+        - heading "Me." [level=2] [ref=e255]
+        - img [ref=e256]
+    - generic [ref=e270]:
+      - generic [ref=e271] [cursor=pointer]:
+        - img [ref=e273]
+        - generic [ref=e275]:
+          - heading "Instagram" [level=3] [ref=e276]
+          - paragraph [ref=e277]: "@syechranaf"
+      - generic [ref=e278] [cursor=pointer]:
+        - img [ref=e280]
+        - generic [ref=e283]:
+          - heading "Whatsapp" [level=3] [ref=e284]
+          - paragraph [ref=e285]: "+6285157766039"
+      - generic [ref=e286] [cursor=pointer]:
+        - img [ref=e288]
+        - generic [ref=e290]:
+          - heading "Mail" [level=3] [ref=e291]
+          - paragraph [ref=e292]: syechran@gmail.com
+      - generic [ref=e293] [cursor=pointer]:
+        - img [ref=e295]
+        - generic [ref=e297]:
+          - heading "Linkedin" [level=3] [ref=e298]
+          - paragraph [ref=e299]: syechran
+      - generic [ref=e300] [cursor=pointer]:
+        - img [ref=e302]
+        - generic [ref=e304]:
+          - heading "Github" [level=3] [ref=e305]
+          - paragraph [ref=e306]: Syechran

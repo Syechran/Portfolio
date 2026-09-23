@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useMotionValue, useAnimationFrame, useMotionValueEvent } from 'framer-motion';
+import { motion, useMotionValue, useAnimationFrame, useMotionValueEvent, useInView } from 'framer-motion';
 import './WebDevShowcase.css';
 
-import imgKahuto from '../assets/kahutostore.png';
-import imgMatcha from '../assets/matcha.png';
-import imgBinus from '../assets/binusflow.png';
-import imgRentcar from '../assets/rentcar.png';
-import imgBelanja from '../assets/belanjayuk.png';
-import imgPadi from '../assets/padi.png';
+import imgKahuto from '../assets/kahutostore.webp';
+import imgMatcha from '../assets/matcha.webp';
+import imgBinus from '../assets/binusflow.webp';
+import imgRentcar from '../assets/rentcar.webp';
+import imgBelanja from '../assets/belanjayuk.webp';
+import imgPadi from '../assets/padi.webp';
 
 const projects = [
   { id: 1, image: imgKahuto, title: 'Kahuto Store', link: 'https://github.com/Syechran/' },
@@ -26,6 +26,8 @@ export default function WebDevShowcase() {
   const [contentWidth, setContentWidth] = useState(0);
 
   const trackRef = useRef(null);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { amount: 0 });
   const x = useMotionValue(0);
 
   // Mengukur lebar total dari 1 set project (6 gambar)
@@ -45,7 +47,7 @@ export default function WebDevShowcase() {
 
   // Frame loop untuk animasi berjalan terus-menerus (Marquee)
   useAnimationFrame((t, delta) => {
-    if (isPressed || isDragging || !contentWidth) return;
+    if (isPressed || isDragging || !contentWidth || !isInView) return;
 
     // Kecepatan geser (bisa diatur)
     const moveBy = 1.2 * (delta / 16);
@@ -70,7 +72,7 @@ export default function WebDevShowcase() {
   });
 
   return (
-    <section className="webdev-section" id="webdev">
+    <section className="webdev-section" id="webdev" ref={sectionRef}>
       <div className="webdev-container">
 
         {/* Main Orange Box */}
@@ -104,7 +106,7 @@ export default function WebDevShowcase() {
               {duplicatedProjects.map((project, index) => (
                 <div key={`${project.id}-${index}`} className="carousel-slide marquee-slide">
                   <div className="slide-image-container">
-                    <img src={project.image} alt={project.title} draggable="false" />
+                    <img loading="lazy" decoding="async" src={project.image} alt={project.title} draggable="false" />
 
                     {/* Ubah button menjadi tag a (anchor) */}
                     <a

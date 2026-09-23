@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './UIUXShowcase.css';
 
-import imgUxvidia from '../assets/uxvidia.jpg';
-import imgMetria from '../assets/metria.jpg';
-import imgAdaptivo from '../assets/adaptivo.png';
+import imgUxvidia from '../assets/uxvidia.webp';
+import imgMetria from '../assets/metria.webp';
+import imgAdaptivo from '../assets/adaptivo.webp';
 
 export default function UIUXShowcase() {
   return (
@@ -31,7 +31,7 @@ export default function UIUXShowcase() {
             viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <img src={imgUxvidia} alt="Numi Design" />
+            <img loading="lazy" decoding="async" src={imgUxvidia} alt="Numi Design" />
           </motion.div>
 
           {/* Top Right: Metria */}
@@ -42,7 +42,7 @@ export default function UIUXShowcase() {
             viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <img src={imgMetria} alt="Metria Design" />
+            <img loading="lazy" decoding="async" src={imgMetria} alt="Metria Design" />
           </motion.div>
 
           {/* Bottom Left: Adaptivo */}
@@ -53,7 +53,7 @@ export default function UIUXShowcase() {
             viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <img src={imgAdaptivo} alt="Adaptivo Design" />
+            <img loading="lazy" decoding="async" src={imgAdaptivo} alt="Adaptivo Design" />
           </motion.div>
 
           {/* Bottom Right: Text Cards Grid */}
