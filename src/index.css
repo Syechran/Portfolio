@@ -1,7 +1,6 @@
-/* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap');
-
 /* ── Reset & Base ── */
+/* Font Bricolage Grotesque sekarang dimuat via <link> di index.html
+   agar tidak render-blocking. */
 *, *::before, *::after {
   box-sizing: border-box;
 }

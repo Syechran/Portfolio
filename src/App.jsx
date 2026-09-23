@@ -8,6 +8,46 @@ import MobileDevShowcase from './components/MobileDevShowcase';
 import UIUXShowcase from './components/UIUXShowcase';
 import TechStacks from './components/TechStacks';
 import Contact from './components/Contact';
+import { preloadImages, preloadList } from './preloadImages';
+
+/* ── App Ready / Loader ────────────────────────────────────────────
+   Loader baru ditutup setelah FONT dan SEMUA gambar showcase selesai
+   diunduh + di-decode. Jadi saat layar loading hilang, scroll langsung
+   lancar tanpa "fetch + decode" gambar di tengah jalan.
+   ──────────────────────────────────────────────────────────────── */
+function hideAppLoader() {
+  const el = document.getElementById('app-loader');
+  document.documentElement.classList.remove('is-loading');
+  if (!el) return;
+  el.classList.add('app-loader--hidden');
+  setTimeout(() => {
+    if (el.parentNode) el.parentNode.removeChild(el);
+  }, 600);
+}
+
+function useAppReady() {
+  useEffect(() => {
+    let cancelled = false;
+
+    // Font ditunggu, tapi dibatasi 2 detik agar Google Fonts yang lambat
+    // tidak menahan loader. Gambar tetap ditunggu sampai benar-benar siap.
+    const fontsReady =
+      typeof document !== 'undefined' && document.fonts
+        ? Promise.race([
+            document.fonts.ready,
+            new Promise((resolve) => setTimeout(resolve, 2000)),
+          ])
+        : Promise.resolve();
+
+    Promise.all([fontsReady, preloadImages(preloadList)]).then(() => {
+      if (!cancelled) hideAppLoader();
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+}
 
 /* ── Scroll Container Context ──────────────────────────────────────
    Dibagikan ke semua komponen agar Framer Motion bisa mendeteksi
@@ -65,6 +105,9 @@ function AppContent({ isDesktop, scrollRef }) {
 function App() {
   const scrollRef = useRef(null);
   const [isDesktop, setIsDesktop] = useState(window.matchMedia('(min-width: 769px)').matches);
+
+  // Tahan loader sampai font + semua gambar siap
+  useAppReady();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 769px)');
