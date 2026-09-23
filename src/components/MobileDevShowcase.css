@@ -5,7 +5,7 @@
 .mobiledev-section {
   background-color: #e8e3d3; /* Sama dengan latar WebDev / Hero */
   padding: 2rem 5vw;
-  height: 100vh;       /* Tepat 100vh agar konten terkunci di tengah layar */
+  min-height: 100vh;   /* Minimal 100vh, tapi boleh tumbuh bila konten lebih tinggi (layar pendek/zoom) */
   display: flex;
   justify-content: center;
   align-items: center;

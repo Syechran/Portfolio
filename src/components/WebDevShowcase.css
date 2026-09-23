@@ -5,7 +5,7 @@
 .webdev-section {
   background-color: #e8e3d3;
   padding: 2rem 0; /* Padding vertikal dikurangi agar fit 100vh */
-  height: 100vh;       /* Tepat 100vh agar konten terkunci di tengah layar */
+  min-height: 100vh;   /* Minimal 100vh, tapi boleh tumbuh bila konten lebih tinggi (layar pendek/zoom) */
   overflow: hidden;    /* Cegah konten meluber keluar */
   display: flex;
   justify-content: center;

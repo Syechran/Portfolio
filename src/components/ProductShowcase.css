@@ -22,6 +22,7 @@
 .showcase-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(0, 1fr); /* Baris mengikuti tinggi grid, boleh menyusut */
   gap: 0.4rem;              /* Jarak antar kolom */
   height: 80vh;              /* Tinggi responsif */
   min-height: 600px;
@@ -33,6 +34,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.4rem;              /* Jarak vertikal antar kotak */
+  min-height: 0;            /* Izinkan menyusut agar tidak meluber keluar grid */
 }
 
 /* Default styling untuk setiap kotak/card */
@@ -41,6 +43,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
+  min-height: 0;             /* Cegah min-content gambar memaksa kartu membesar */
   background-color: #f2eee3; /* Background default placeholder jika gambar belum load */
 }
 
