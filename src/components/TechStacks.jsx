@@ -6,6 +6,8 @@ import './TechStacks.css';
 import imgFigma from '../assets/figma.png';
 import imgReact from '../assets/react.png';
 import imgNodejs from '../assets/nodejs.png';
+import imgMysql from '../assets/mysql.svg';
+import imgLaravel from '../assets/laravel.svg';
 import imgBlender from '../assets/blender.png';
 import imgIllustrator from '../assets/illustrator.png';
 import imgPhotoshop from '../assets/photoshop.png';
@@ -14,6 +16,8 @@ const techData = [
   { name: 'Figma', icon: imgFigma },
   { name: 'React', icon: imgReact },
   { name: 'NodeJS', icon: imgNodejs },
+  { name: 'MySQL', icon: imgMysql },
+  { name: 'Laravel', icon: imgLaravel },
   { name: 'Blender', icon: imgBlender },
   { name: 'Illustrator', icon: imgIllustrator },
   { name: 'Photoshop', icon: imgPhotoshop },

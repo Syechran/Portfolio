@@ -5,7 +5,7 @@
 .techstack-section {
   background-color: #e8e3d3; /* Latar krem konsisten dengan desain */
   padding: 2rem 5vw;
-  height: 100vh;       /* Tepat 100vh agar konten terkunci di tengah layar */
+  min-height: 100vh;   /* Minimal 100vh, tapi boleh tumbuh bila konten lebih tinggi (layar pendek/zoom) */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,8 +32,9 @@
 
 /* Grid Pembungkus */
 .techstack-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  /* 4 kolom -> 8 stack tersusun rapi jadi 2 baris seimbang (4 + 4) */
+  grid-template-columns: repeat(4, auto);
   gap: 2.5rem; /* Jarak antar tumpukan teknologi */
   justify-content: center;
   width: 100%;
@@ -104,6 +105,7 @@
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 @media (max-width: 768px) {
   .techstack-grid {
+    grid-template-columns: repeat(3, auto);
     gap: 1.5rem;
   }
 
@@ -153,6 +155,12 @@
 
   .tech-name {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .techstack-grid {
+    grid-template-columns: repeat(2, auto);
   }
 }
 

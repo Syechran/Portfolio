@@ -29,6 +29,8 @@ import imgAdaptivo from './assets/adaptivo.webp';
 import imgFigma from './assets/figma.png';
 import imgReact from './assets/react.png';
 import imgNodejs from './assets/nodejs.png';
+import imgMysql from './assets/mysql.svg';
+import imgLaravel from './assets/laravel.svg';
 import imgBlender from './assets/blender.png';
 import imgIllustrator from './assets/illustrator.png';
 import imgPhotoshop from './assets/photoshop.png';
@@ -54,6 +56,8 @@ export const preloadList = [
   imgFigma,
   imgReact,
   imgNodejs,
+  imgMysql,
+  imgLaravel,
   imgBlender,
   imgIllustrator,
   imgPhotoshop,
